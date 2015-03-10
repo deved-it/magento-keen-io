@@ -41,16 +41,29 @@ class Deved_KeenIo_Model_Observer {
       $this->loadLibraries();
       $params = Mage::app()->getFrontController()->getRequest()->getParams();
       $order = $observer->getEvent()->getOrder();
+      $items = $order->getAllItems();
+      foreach ($items as &$item)
+      {
+        $item = $item->toArray();
+      }
+      $shipping_address = $order->getShippingAddress()->getData();
+      $order = $order->toArray();
+      $order['items'] = $items;
+      $order['shipping_address'] = $shipping_address;
+
       Mage::log('Order intercepted');
       //use Keen IO Client to send order data
       if ($this->projectId && $this->writeKey)
       {
-          try {
+          try
+          {
+
               $client = KeenIOClient::factory([
                   'projectId' => $this->projectId,
                   'writeKey'  => $this->writeKey
               ]);
-              $client->addEvent('orders', $order->toArray());
+              $client->addEvent('orders', $order);
+              
           } catch (Exception $e) {
               Mage::logException($e);
           }
@@ -59,7 +72,7 @@ class Deved_KeenIo_Model_Observer {
     }
 
     /**
-     * Attempt to load geoPHP from lib and vendor directories
+     * Attempt to load libraries from vendor directories
      */
     protected function loadLibraries()
     {
