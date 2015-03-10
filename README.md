@@ -19,8 +19,8 @@ If you do not have an existing Magento Composer Installer _composer.json_ file d
             "url":"http://packages.firegento.com"
           },
           {
-              "type": "vcs",
-              "url": "https://github.com/deved-it/magento-keen-io"
+            "type": "vcs",
+            "url": "https://github.com/deved-it/magento-keen-io"
           }
       ],
       "require": {
@@ -33,10 +33,11 @@ If you do not have an existing Magento Composer Installer _composer.json_ file d
       }
     }
 
+
 To install Magento Keen IO and its dependencies just run composer.phar.
 
     $ ./composer.phar install
 
 ## Configuration ##
 
-Open the Magento Admin interface and go to configuration -> DEVED KEEN IO -> Keen IO Configuration and fill in the fields with your Project ID and Write key. When you will receive a new order, all order data will be sent to your keen.io project.
+Open the Magento Admin interface and go to _configuration->DEVED KEEN IO->Keen IO Configuration_ and fill in the fields with your _Project ID_ and _Write key_. When you will receive a new order, all order data will be sent to your keen.io project.
