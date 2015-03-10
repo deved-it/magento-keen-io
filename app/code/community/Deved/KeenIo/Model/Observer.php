@@ -42,13 +42,8 @@ class Deved_KeenIo_Model_Observer {
       $params = Mage::app()->getFrontController()->getRequest()->getParams();
       $order = $observer->getEvent()->getOrder();
       $items = $order->getAllItems();
-      foreach ($items as &$item)
-      {
-        $item = $item->toArray();
-      }
       $shipping_address = $order->getShippingAddress()->getData();
       $order = $order->toArray();
-      $order['items'] = $items;
       $order['shipping_address'] = $shipping_address;
 
       Mage::log('Order intercepted');
@@ -62,8 +57,13 @@ class Deved_KeenIo_Model_Observer {
                   'projectId' => $this->projectId,
                   'writeKey'  => $this->writeKey
               ]);
-              $client->addEvent('orders', $order);
-              
+              foreach ($items as &$item)
+              {
+                $item = $item->toArray();
+                $item['order'] = $order;
+                $client->addEvent('purchases', $item);
+              }
+
           } catch (Exception $e) {
               Mage::logException($e);
           }
