@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Deved_KeenIo>
+            <version>1.0.0</version>
+        </Deved_KeenIo>
+    </modules>
+    <global>
+        <models>
+            <deved_keenio>
+                <class>Deved_KeenIo_Model</class>
+            </deved_keenio>
+        </models>
+        <helpers>
+            <deved>
+                <class>Deved_KeenIo_Helper</class>
+            </deved>
+        </helpers>
+    </global>
+    <frontend>
+        <events>
+            <sales_order_place_after>
+              <observers>
+                <deved_keenio>
+                  <type>singleton</type>
+                  <class>deved_keenio/observer</class>
+                  <method>sendNewOrder</method>
+                </deved_keenio>
+              </observers>
+            </sales_order_place_after>
+        </events>
+    </frontend>
+</config>

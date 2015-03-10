@@ -1,0 +1,50 @@
+<config>
+    <tabs>
+        <deved_tab module="deved" translate="label">
+            <label>Deved Keen IO</label>
+            <sort_order>100</sort_order>
+        </deved_tab>
+    </tabs>
+    <sections>
+        <keenio_section module="deved" translate="label">
+            <label>Keen IO Configuration</label>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <tab>deved_tab</tab>
+            <groups>
+                <keenio_group translate="label">
+                    <label>API KEYS</label>
+                    <comment>Insert Project ID and API KEY of your Keen IO Project</comment>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <project_id translate="label tooltip comment">
+                            <label>Project ID</label>
+                            <sort_order>10</sort_order>
+                            <comment>Copy and paste your project ID</comment>
+                            <tooltip>Copy and paste your project ID</tooltip>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>text</frontend_type>
+                        </project_id>
+                        <write_key translate="label tooltip comment">
+                            <label>Write KEY</label>
+                            <sort_order>20</sort_order>
+                            <comment>Copy and paste your Write KEY</comment>
+                            <tooltip>Copy and paste your Write KEY</tooltip>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_type>text</frontend_type>
+                        </write_key>
+                    </fields>
+                </keenio_group>
+            </groups>
+        </keenio_section>
+    </sections>
+</config>

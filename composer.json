@@ -1,0 +1,15 @@
+{
+    "name": "deved/magento-keen-io",
+    "type": "magento-module",
+    "license":"MIT",
+    "description":"Magento module to send orders data to keen.io",
+    "authors":[
+        {
+            "name":"Salvatore Guarino",
+            "email":"sg@deved.it"
+        }
+    ],
+    "require": {
+        "keen-io/keen-io":"~2.5"
+    }
+}
