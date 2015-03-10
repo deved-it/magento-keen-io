@@ -25,7 +25,7 @@ If you do not have an existing Magento Composer Installer _composer.json_ file d
       ],
       "require": {
           "magento-hackathon/magento-composer-installer": "*",
-          "deved/magento-keen-io"
+          "deved/magento-keen-io": "*"
       },
       "extra":{
           "magento-root-dir":"./",
